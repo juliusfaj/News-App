@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:newsapp/screens/OnBoarding.dart';
 import 'Themes/color_schemes.g.dart';
 
 void main() {
@@ -17,11 +18,7 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
 
       debugShowCheckedModeBanner: false,
-      home: const Scaffold(
-        body: Center(
-          child: Text('hi'),
-        ),
-      ),
+      home: const OnBoarding(),
     );
   }
 }

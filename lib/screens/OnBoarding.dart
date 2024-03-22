@@ -19,7 +19,7 @@ class OnBoarding extends StatelessWidget {
       ),
         child: const Scaffold(
           body: Center(
-            child: Text('hii'),
+            child: Image(image: AssetImage('assets/newsImg.jpg'))
           )
         ),
     );
