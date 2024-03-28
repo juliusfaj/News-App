@@ -66,7 +66,7 @@ class OnBoarding extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold,
-                                color: Theme.of(context).colorScheme.scrim
+                                color: Theme.of(context).colorScheme.scrim,
                             ),
                           ),
                         ],

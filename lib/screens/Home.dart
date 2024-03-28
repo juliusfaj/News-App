@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:newsapp/screens/DiscoverPage.dart';
+import 'package:newsapp/screens/HomeScreen.dart';
+import 'package:newsapp/screens/SavedPage.dart';
+
+import 'ProfilePage.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -36,24 +41,16 @@ class _HomeState extends State<Home> {
         body: Stack(
           children: [
             if(_currentIndex == 0)...[
-              Center(
-                child: Text((_currentIndex + 1).toString()),
-              ),
+              const HomeScreen(),
             ],
             if(_currentIndex == 1)...[
-              Center(
-                child: Text((_currentIndex + 1).toString()),
-              ),
+              const DiscoverPage(),
             ],
             if(_currentIndex == 2)...[
-              Center(
-                child: Text((_currentIndex + 1).toString()),
-              ),
+              const SavedPage(),
             ],
             if(_currentIndex == 3)...[
-              Center(
-                child: Text((_currentIndex + 1).toString()),
-              ),
+              const ProfilePage(),
             ],
           ],
         ),
