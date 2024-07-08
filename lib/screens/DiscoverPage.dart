@@ -7,7 +7,7 @@ class DiscoverPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('Discover Screen'),
+        child: Text('Discover Screenssss'),
       ),
     );
   }
