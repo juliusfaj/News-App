@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:icons_plus/icons_plus.dart';
 import '../widgets/appButton.dart';
-import 'Home.dart';
+import 'home.dart';
 
 
 class OnBoarding extends StatelessWidget {
@@ -66,13 +66,13 @@ class OnBoarding extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold,
-                                color: Theme.of(context).colorScheme.scrim,
+                                color: Theme.of(context).colorScheme.secondary,
                             ),
                           ),
                         ],
                       ),
                       color: Theme.of(context).colorScheme.onPrimary,
-                      textColor: Theme.of(context).colorScheme.onPrimary,
+                      textColor: Theme.of(context).colorScheme.onSecondary,
                       onPressed: () {Get.to(const Home());},
                     ).paddingSymmetric(horizontal: 20),
 
@@ -86,8 +86,8 @@ class OnBoarding extends StatelessWidget {
                             color: Theme.of(context).colorScheme.primary
                         ),
                       ),
-                      color: Theme.of(context).colorScheme.onSurface,
-                      textColor: Theme.of(context).colorScheme.onPrimary,
+                      color: Theme.of(context).colorScheme.secondaryContainer,
+                      textColor: Theme.of(context).colorScheme.shadow,
                       onPressed: () {},
                     ).paddingSymmetric(horizontal: 20),
 
@@ -99,7 +99,7 @@ class OnBoarding extends StatelessWidget {
                         text: TextSpan(
                           text: 'By creating an account you accept our ',
                           style: TextStyle(
-                            color: Theme.of(context).colorScheme.onPrimary,
+                            color: Theme.of(context).colorScheme.onSurface,
                             fontSize: 9,
                           ),
                           children: const [

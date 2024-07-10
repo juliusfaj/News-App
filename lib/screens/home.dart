@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:icons_plus/icons_plus.dart';
-import 'package:newsapp/screens/DiscoverPage.dart';
-import 'package:newsapp/screens/HomeScreen.dart';
+import 'package:newsapp/screens/discover_page.dart';
+import 'package:newsapp/screens/home_screen.dart';
 import 'package:newsapp/screens/SavedPage.dart';
 
 import 'ProfilePage.dart';
@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
         body: Stack(
           children: [
             if(_currentIndex == 0)...[
-              const HomeScreen(),
+               HomeScreen(),
             ],
             if(_currentIndex == 1)...[
               const DiscoverPage(),

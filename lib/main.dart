@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:newsapp/screens/OnBoarding.dart';
+import 'package:newsapp/screens/onboarding.dart';
 import 'Themes/color_schemes.g.dart';
 
 void main() {
