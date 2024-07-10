@@ -102,3 +102,86 @@ class SectionTitle extends StatelessWidget {
   }
 }
 
+class NewsList extends StatelessWidget {
+  const NewsList({
+    super.key,
+    this.category,
+    this.date,
+    this.img,
+    this.name,
+    this.title,
+  });
+
+  final String? category;
+  final String title;
+  final String name;
+  final String date;
+  final string img;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: SizedBox(
+        height: 140,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: double.infinity,
+              width: 150,
+              decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary.withOpacity(.5),
+                  borderRadius: BorderRadius.circular(20)
+              ),
+            ),
+            const SizedBox(width: 20,),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Sports',  style: TextStyle(color:Colors.grey.withOpacity(.8),fontWeight: FontWeight.bold),),
+                const Spacer(),
+                const Text('What training do \nvolleyball',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 23,
+
+                  ),
+                ),
+                const Spacer(),
+                Row(
+                  children: [
+                    Container(
+                      height: 30,
+                      width: 30,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.primary.withOpacity(.5),
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                    const SizedBox(width: 10,),
+                    Text('Mike', style: TextStyle(color:Colors.grey.withOpacity(.8), fontWeight: FontWeight.bold),),
+                    const SizedBox(width: 10,),
+                    Container(
+                      height: 7,
+                      width: 7,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.secondary.withOpacity(.5),
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                    const SizedBox(width: 10,),
+                    Text('Feb 27, 2023',  style: TextStyle(color:Colors.grey.withOpacity(.8), fontWeight: FontWeight.bold),),
+                  ],
+                )
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+

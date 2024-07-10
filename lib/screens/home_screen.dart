@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-
 import '../helpers/helpers.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -40,14 +38,15 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 20,),
           PageSlider(images: images),
           const SizedBox(height: 30,),
           const SectionTitle(text: 'Recommendations',),
-          const SizedBox(height: 20,)
+          const SizedBox(height: 30,),
 
-          R
+          const NewsList()
         ],
       )
 
