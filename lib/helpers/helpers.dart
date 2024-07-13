@@ -201,7 +201,7 @@ class PageTitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 55,),
-        const InkWell(child:Icon(Icons.arrow_back_ios_new)).paddingOnly(left: 15),
+        const InkWell(child:Icon(Icons.arrow_back_ios_new)),
         const SizedBox(height: 15,),
         Text(
           title ?? '',
@@ -210,7 +210,7 @@ class PageTitle extends StatelessWidget {
             fontSize: 25,
             fontWeight: FontWeight.bold,
           ),
-        ).paddingOnly(left: 15)
+        )
       ],
     );
   }
