@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme, fontFamily: "Montserrat"),
       darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
+      // darkTheme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
 
       debugShowCheckedModeBanner: false,
       home: const OnBoarding(),

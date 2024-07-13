@@ -26,7 +26,7 @@ class ViewRecommendationsPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const PageTitle(title: 'Recommendation'),
+          const PageTitle(title: 'Recommendation').marginSymmetric(horizontal: 20),
           const SizedBox(height: 20),
           SizedBox(
             height: 40,
@@ -51,9 +51,31 @@ class ViewRecommendationsPage extends StatelessWidget {
                 ).marginOnly(right: 10);
               },
             ),
+          ).marginOnly(left: 20),
+          const SizedBox(height: 25),
+          const SectionTitle(text: 'sport', showViewAll: false,),
+          const SizedBox(height: 20,),
+          Expanded(
+            child: ListView.builder(
+                itemCount: 5,
+                padding: EdgeInsets.zero,
+                itemBuilder: (context, index){
+                  return const Column(
+                    children: [
+                      NewsList(
+                        category: 'Sports',
+                        title: 'What training do \nvolleyball',
+                        name: 'mike',
+                        date: 'Feb 27, 2023',
+                      ),
+                      SizedBox(height: 10,)
+                    ],
+                  );
+                }
+            ).marginSymmetric(horizontal: 20),
           ),
         ]
-      ).marginOnly(left: 20),
+      ),
     );
   }
 }

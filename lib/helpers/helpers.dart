@@ -16,7 +16,7 @@ class PageSlider extends StatelessWidget {
       child: PageView.builder(
         itemCount: images.length,
         scrollDirection: Axis.horizontal,
-        controller: PageController(viewportFraction: .95),
+        controller: PageController(viewportFraction: .95, initialPage: 1),
         itemBuilder: (context, index) {
           return Container(
             margin: const EdgeInsets.symmetric(horizontal:5),
@@ -71,28 +71,30 @@ class SectionTitle extends StatelessWidget {
     super.key,
     this.text = '',
     this.onPressed,
+    this.showViewAll = true,
   });
 
   final String text;
   final Function()? onPressed;
+  final bool showViewAll;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding:const EdgeInsets.symmetric(horizontal: 20),
-      child: Row(
-        children: [
-          Text(
-            text,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-            ),
+    return Row(
+      children: [
+        Text(
+          text.capitalizeFirst!,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
           ),
-          const Spacer(),
-          InkWell(
-            onTap: onPressed,
-            child: const Text(
+        ),
+        const Spacer(),
+        InkWell(
+          onTap: onPressed,
+          child: Visibility(
+            visible: showViewAll,
+            child:  const Text(
               'View all',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -101,9 +103,9 @@ class SectionTitle extends StatelessWidget {
               ),
             ),
           ),
-        ],
-      ),
-    );
+        )
+      ],
+    ).marginSymmetric(horizontal: 20);
   }
 }
 
@@ -124,64 +126,61 @@ class NewsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: SizedBox(
-        height: 140,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: double.infinity,
-              width: 150,
-              decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary.withOpacity(.5),
-                  borderRadius: BorderRadius.circular(20)
-              ),
+    return SizedBox(
+      height: 140,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            height: double.infinity,
+            width: 150,
+            decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primary.withOpacity(.5),
+                borderRadius: BorderRadius.circular(20)
             ),
-            const SizedBox(width: 20,),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text( category ?? '',  style: TextStyle(color:Colors.grey.withOpacity(.8),fontWeight: FontWeight.bold),),
-                const Spacer(),
-                 Text(title ?? '',
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 23,
+          ),
+          const SizedBox(width: 20,),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text( category ?? '',  style: TextStyle(color:Colors.grey.withOpacity(.8),fontWeight: FontWeight.bold),),
+              const Spacer(),
+               Text(title ?? '',
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 23,
 
-                  ),
                 ),
-                const Spacer(),
-                Row(
-                  children: [
-                    Container(
-                      height: 30,
-                      width: 30,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.primary.withOpacity(.5),
-                        shape: BoxShape.circle,
-                      ),
+              ),
+              const Spacer(),
+              Row(
+                children: [
+                  Container(
+                    height: 30,
+                    width: 30,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.primary.withOpacity(.5),
+                      shape: BoxShape.circle,
                     ),
-                    const SizedBox(width: 10,),
-                    Text(name ?? '', style: TextStyle(color:Colors.grey.withOpacity(.8), fontWeight: FontWeight.bold),),
-                    const SizedBox(width: 10,),
-                    Container(
-                      height: 7,
-                      width: 7,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.secondary.withOpacity(.5),
-                        shape: BoxShape.circle,
-                      ),
+                  ),
+                  const SizedBox(width: 10,),
+                  Text(name ?? '', style: TextStyle(color:Colors.grey.withOpacity(.8), fontWeight: FontWeight.bold),),
+                  const SizedBox(width: 10,),
+                  Container(
+                    height: 7,
+                    width: 7,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.secondary.withOpacity(.5),
+                      shape: BoxShape.circle,
                     ),
-                    const SizedBox(width: 10,),
-                    Text(date ?? '',  style: TextStyle(color:Colors.grey.withOpacity(.8), fontWeight: FontWeight.bold),),
-                  ],
-                )
-              ],
-            )
-          ],
-        ),
+                  ),
+                  const SizedBox(width: 10,),
+                  Text(date ?? '',  style: TextStyle(color:Colors.grey.withOpacity(.8), fontWeight: FontWeight.bold),),
+                ],
+              )
+            ],
+          )
+        ],
       ),
     );
   }
@@ -191,9 +190,11 @@ class PageTitle extends StatelessWidget {
   const PageTitle({
     super.key,
     this.title,
+
   });
 
   final String? title;
+
 
   @override
   Widget build(BuildContext context) {
@@ -201,7 +202,7 @@ class PageTitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 55,),
-        const InkWell(child:Icon(Icons.arrow_back_ios_new)),
+        InkWell(onTap: (){Get.back();}, child:Icon(Icons.arrow_back_ios_new)),
         const SizedBox(height: 15,),
         Text(
           title ?? '',

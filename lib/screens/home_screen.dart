@@ -43,11 +43,11 @@ class HomeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 20,),
-          const SectionTitle(text: 'Breaking News',),
+          const SectionTitle(text: 'breaking news',),
           const SizedBox(height: 20,),
           PageSlider(images: images),
           const SizedBox(height: 30,),
-          SectionTitle(text: 'Recommendations', onPressed: (){
+          SectionTitle(text: 'recommendations', onPressed: (){
             Get.to(const ViewRecommendationsPage());
           }),
           const SizedBox(height: 15,),
@@ -67,12 +67,12 @@ class HomeScreen extends StatelessWidget {
                       height: 10  ,
                     )
                   ],
-                );
+                ).marginOnly(left: 20);
               },
             ),
           )
         ],
-      )
+      ),
     );
   }
 }
