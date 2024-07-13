@@ -70,9 +70,11 @@ class SectionTitle extends StatelessWidget {
   const SectionTitle({
     super.key,
     this.text = '',
+    this.onPressed,
   });
 
   final String text;
+  final Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -88,12 +90,15 @@ class SectionTitle extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          const Text(
-            'View all',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.blue,
-              fontSize: 12,
+          InkWell(
+            onTap: onPressed,
+            child: const Text(
+              'View all',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.blue,
+                fontSize: 12,
+              ),
             ),
           ),
         ],
@@ -107,16 +112,15 @@ class NewsList extends StatelessWidget {
     super.key,
     this.category,
     this.date,
-    this.img,
     this.name,
     this.title,
   });
 
   final String? category;
-  final String title;
-  final String name;
-  final String date;
-  final string img;
+  final String? title;
+  final String? name;
+  final String? date;
+
 
   @override
   Widget build(BuildContext context) {
@@ -139,10 +143,10 @@ class NewsList extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Sports',  style: TextStyle(color:Colors.grey.withOpacity(.8),fontWeight: FontWeight.bold),),
+                Text( category ?? '',  style: TextStyle(color:Colors.grey.withOpacity(.8),fontWeight: FontWeight.bold),),
                 const Spacer(),
-                const Text('What training do \nvolleyball',
-                  style: TextStyle(
+                 Text(title ?? '',
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 23,
 
@@ -160,7 +164,7 @@ class NewsList extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 10,),
-                    Text('Mike', style: TextStyle(color:Colors.grey.withOpacity(.8), fontWeight: FontWeight.bold),),
+                    Text(name ?? '', style: TextStyle(color:Colors.grey.withOpacity(.8), fontWeight: FontWeight.bold),),
                     const SizedBox(width: 10,),
                     Container(
                       height: 7,
@@ -171,7 +175,7 @@ class NewsList extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 10,),
-                    Text('Feb 27, 2023',  style: TextStyle(color:Colors.grey.withOpacity(.8), fontWeight: FontWeight.bold),),
+                    Text(date ?? '',  style: TextStyle(color:Colors.grey.withOpacity(.8), fontWeight: FontWeight.bold),),
                   ],
                 )
               ],
@@ -183,5 +187,33 @@ class NewsList extends StatelessWidget {
   }
 }
 
+class PageTitle extends StatelessWidget {
+  const PageTitle({
+    super.key,
+    this.title,
+  });
+
+  final String? title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SizedBox(height: 55,),
+        const InkWell(child:Icon(Icons.arrow_back_ios_new)).paddingOnly(left: 15),
+        const SizedBox(height: 15,),
+        Text(
+          title ?? '',
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.primary,
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
+        ).paddingOnly(left: 15)
+      ],
+    );
+  }
+}
 
 

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:newsapp/screens/pages/view_recommendations_page.dart';
 import '../helpers/helpers.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -41,15 +43,36 @@ class HomeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 20,),
+          const SectionTitle(text: 'Breaking News',),
+          const SizedBox(height: 20,),
           PageSlider(images: images),
           const SizedBox(height: 30,),
-          const SectionTitle(text: 'Recommendations',),
-          const SizedBox(height: 30,),
-
-          const NewsList()
+          SectionTitle(text: 'Recommendations', onPressed: (){
+            Get.to(const ViewRecommendationsPage());
+          }),
+          const SizedBox(height: 15,),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 5,
+              itemBuilder: (context, index) {
+                return const Column(
+                  children: [
+                    NewsList(
+                      category: 'Sports',
+                      title: 'What training do \nvolleyball',
+                      name: 'mike',
+                      date: 'Feb 27, 2023',
+                    ),
+                    SizedBox(
+                      height: 10  ,
+                    )
+                  ],
+                );
+              },
+            ),
+          )
         ],
       )
-
     );
   }
 }
