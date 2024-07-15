@@ -38,6 +38,20 @@ class HomeScreen extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title:Text('FajNews',
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.primary,
+            fontSize: 40,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.notifications_none_outlined),),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search),),
+        ],
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,

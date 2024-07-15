@@ -21,23 +21,10 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value:const SystemUiOverlayStyle(
-        statusBarIconBrightness: Brightness.dark,
+        statusBarIconBrightness: Brightness.light,
       ),
       child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title:Text('FajNews',
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.primary,
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.notifications_none_outlined),),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.search),),
-          ],
-        ),
+
         body: Stack(
           children: [
             if(_currentIndex == 0)...[

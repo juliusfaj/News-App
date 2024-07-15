@@ -190,10 +190,17 @@ class PageTitle extends StatelessWidget {
   const PageTitle({
     super.key,
     this.title,
-
+    this.showBtn = true,
+    this.size = 25,
+    this.showSubtext = false,
+    this.subText,
   });
 
   final String? title;
+  final bool showBtn;
+  final double? size;
+  final bool showSubtext;
+  final String? subText;
 
 
   @override
@@ -202,16 +209,21 @@ class PageTitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 55,),
-        InkWell(onTap: (){Get.back();}, child:Icon(Icons.arrow_back_ios_new)),
+        Visibility(visible: showBtn,child: InkWell(onTap: (){Get.back();}, child:const Icon(Icons.arrow_back_ios_new))),
         const SizedBox(height: 15,),
         Text(
           title ?? '',
           style: TextStyle(
             color: Theme.of(context).colorScheme.primary,
-            fontSize: 25,
+            fontSize: size,
             fontWeight: FontWeight.bold,
           ),
-        )
+        ),
+        const SizedBox(height: 5,),
+        Visibility(
+          visible: showSubtext,
+            child:Text(subText ?? '', style: TextStyle(color:Colors.grey.withOpacity(.8),fontWeight: FontWeight.bold),),
+        ),
       ],
     );
   }
