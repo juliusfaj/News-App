@@ -126,61 +126,64 @@ class NewsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 140,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            height: double.infinity,
-            width: 150,
-            decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary.withOpacity(.5),
-                borderRadius: BorderRadius.circular(20)
-            ),
-          ),
-          const SizedBox(width: 20,),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text( category ?? '',  style: TextStyle(color:Colors.grey.withOpacity(.8),fontWeight: FontWeight.bold),),
-              const Spacer(),
-               Text(title ?? '',
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 23,
-
-                ),
+    return InkWell(
+      onTap: (){},
+      child: SizedBox(
+        height: 140,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: double.infinity,
+              width: 150,
+              decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary.withOpacity(.5),
+                  borderRadius: BorderRadius.circular(20)
               ),
-              const Spacer(),
-              Row(
-                children: [
-                  Container(
-                    height: 30,
-                    width: 30,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.primary.withOpacity(.5),
-                      shape: BoxShape.circle,
-                    ),
+            ),
+            const SizedBox(width: 20,),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text( category ?? '',  style: TextStyle(color:Colors.grey.withOpacity(.8),fontWeight: FontWeight.bold),),
+                const Spacer(),
+                 Text(title ?? '',
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 23,
+
                   ),
-                  const SizedBox(width: 10,),
-                  Text(name ?? '', style: TextStyle(color:Colors.grey.withOpacity(.8), fontWeight: FontWeight.bold),),
-                  const SizedBox(width: 10,),
-                  Container(
-                    height: 7,
-                    width: 7,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.secondary.withOpacity(.5),
-                      shape: BoxShape.circle,
+                ),
+                const Spacer(),
+                Row(
+                  children: [
+                    Container(
+                      height: 30,
+                      width: 30,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.primary.withOpacity(.5),
+                        shape: BoxShape.circle,
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 10,),
-                  Text(date ?? '',  style: TextStyle(color:Colors.grey.withOpacity(.8), fontWeight: FontWeight.bold),),
-                ],
-              )
-            ],
-          )
-        ],
+                    const SizedBox(width: 10,),
+                    Text(name ?? '', style: TextStyle(color:Colors.grey.withOpacity(.8), fontWeight: FontWeight.bold),),
+                    const SizedBox(width: 10,),
+                    Container(
+                      height: 7,
+                      width: 7,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.secondary.withOpacity(.5),
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                    const SizedBox(width: 10,),
+                    Text(date ?? '',  style: TextStyle(color:Colors.grey.withOpacity(.8), fontWeight: FontWeight.bold),),
+                  ],
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
@@ -225,6 +228,43 @@ class PageTitle extends StatelessWidget {
             child:Text(subText ?? '', style: TextStyle(color:Colors.grey.withOpacity(.8),fontWeight: FontWeight.bold),),
         ),
       ],
+    );
+  }
+}
+
+class ListSlider extends StatelessWidget {
+  const ListSlider({
+    super.key,
+    required this.recommendations,
+  });
+
+  final List<String> recommendations;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 40,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: recommendations.length,
+        itemBuilder: (context, index){
+          return Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.primary,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Text(
+              recommendations[index].capitalizeFirst!,
+              style: TextStyle(
+                fontSize: 15,
+                color: Theme.of(context).colorScheme.onPrimary,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ).marginOnly(right: 10);
+        },
+      ),
     );
   }
 }
