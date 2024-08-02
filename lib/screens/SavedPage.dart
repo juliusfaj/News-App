@@ -19,11 +19,10 @@ class SavedPage extends StatelessWidget {
             const PageTitle(
               showBtn: false,
               title: 'Saved News',
-              size: 40,
-              showSubtext: true,
-              subText: 'News from all around the world',
+              size: 30,
+              showSubtext: false,
             ).marginOnly(left: 20),
-            const SizedBox(height: 30,),
+            const SizedBox(height: 20,),
             Expanded(
               child: ListView.builder(
                   itemCount: 10,
