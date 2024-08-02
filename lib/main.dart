@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme, fontFamily: "Montserrat"),
-      darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
-      // darkTheme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
+      // darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
+      darkTheme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
 
       debugShowCheckedModeBanner: false,
       home: const OnBoarding(),

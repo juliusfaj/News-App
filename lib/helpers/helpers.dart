@@ -135,7 +135,7 @@ class NewsList extends StatelessWidget {
           children: [
             Container(
               height: double.infinity,
-              width: 150,
+              width: 140,
               decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.primary.withOpacity(.5),
                   borderRadius: BorderRadius.circular(20)
