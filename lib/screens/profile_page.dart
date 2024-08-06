@@ -20,6 +20,9 @@ class ProfilePage extends StatelessWidget {
     ),(
     title: "Invite a Friend",
     icon: Icons.people_alt_outlined,
+    ),(
+    title: "Logout",
+    icon: Icons.logout,
     ),
   ];
 
@@ -63,7 +66,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                   const SizedBox(height: 25),
                   const Text('John Doe', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 15),
                   Container(
                     width: 150,
                     height: 40,
@@ -83,13 +86,14 @@ class ProfilePage extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 15,),
             Expanded(
               child: ListView.builder(
                   itemCount: tileData.length,
                   itemBuilder: (context, index){
                     return ListTile(
                       leading: Icon(tileData[index].icon),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 20),
                       title: Text(tileData[index].title),
                       onTap: (){},
                       trailing: const Icon(Icons.arrow_forward_ios),

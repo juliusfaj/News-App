@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:newsapp/screens/pages/current_news.dart';
 
 class PageSlider extends StatelessWidget {
   const PageSlider({
@@ -127,7 +128,7 @@ class NewsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){},
+      onTap: (){Get.to(const CurrentNews());},
       child: SizedBox(
         height: 140,
         child: Row(
