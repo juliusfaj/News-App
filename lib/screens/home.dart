@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:newsapp/screens/discover_page.dart';
 import 'package:newsapp/screens/home_screen.dart';
-import 'package:newsapp/screens/SavedPage.dart';
+import 'package:newsapp/screens/saved_page.dart';
 
-import 'ProfilePage.dart';
+import 'profile_page.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
               const SavedPage(),
             ],
             if(_currentIndex == 3)...[
-              const ProfilePage(),
+              ProfilePage(),
             ],
           ],
         ),

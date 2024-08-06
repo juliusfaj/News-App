@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:icons_plus/icons_plus.dart';
-import '../widgets/appButton.dart';
+import '../widgets/app_button.dart';
 import 'home.dart';
 
 
