@@ -18,6 +18,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.6.6
   icons_plus: ^5.0.0
+  collapsible_app_bar: ^0.1.4
 
 dev_dependencies:
   flutter_test:
