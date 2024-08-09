@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:newsapp/screens/sign_in.dart';
 import '../widgets/app_button.dart';
 import 'home.dart';
 
@@ -38,10 +39,8 @@ class OnBoarding extends StatelessWidget {
                 ),
               ),
 
-
               Center(
                 child: Column(
-
                   children: [
                     Expanded(
                         child: Center(
@@ -88,7 +87,7 @@ class OnBoarding extends StatelessWidget {
                       ),
                       color: Theme.of(context).colorScheme.secondaryContainer,
                       textColor: Theme.of(context).colorScheme.shadow,
-                      onPressed: () {},
+                      onPressed: () {Get.to(const SignIn());},
                     ).paddingSymmetric(horizontal: 20),
 
                     const SizedBox(height: 20,),
