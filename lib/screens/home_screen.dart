@@ -57,7 +57,7 @@ class HomeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 20,),
-          const SectionTitle(text: 'breaking news',),
+          SectionTitle(text: 'breaking news', onPressed: (){Get.to(const ViewRecommendationsPage());},),
           const SizedBox(height: 20,),
           PageSlider(images: images),
           const SizedBox(height: 30,),

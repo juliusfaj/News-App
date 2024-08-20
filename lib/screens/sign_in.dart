@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:newsapp/helpers/utils.dart';
 import 'package:newsapp/widgets/app_button.dart';
 
@@ -19,6 +21,8 @@ class SignIn extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 60,),
+                  IconButton(alignment: Alignment.centerLeft,padding: EdgeInsets.zero,onPressed: (){Get.back();}, icon: Icon(Icons.arrow_back_ios_new)),
+                  const SizedBox(height: 5,),
                   const Text('Sign up', style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 25,
@@ -106,6 +110,8 @@ class SignIn extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 60,),
+                  IconButton(alignment: Alignment.centerLeft,padding: EdgeInsets.zero,onPressed: (){Get.back();}, icon: Icon(Icons.arrow_back_ios_new)),
+                  const SizedBox(height: 5,),
                   const Text('Sign In', style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 25,
