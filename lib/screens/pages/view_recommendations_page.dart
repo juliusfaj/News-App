@@ -13,7 +13,7 @@ class ViewRecommendationsPage extends StatelessWidget {
     'politics',
     'entertainment',
     'business',
-    'tech',
+    'technology',
     'health',
     'science',
     'food',

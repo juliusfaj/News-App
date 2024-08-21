@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:newsapp/screens/pages/current_news.dart';
 import 'package:newsapp/screens/pages/view_recommendations_page.dart';
 import '../helpers/helpers.dart';
 
 class HomeScreen extends StatelessWidget {
-    HomeScreen({super.key});
+  HomeScreen({super.key});
 
  var images = [
     (
@@ -59,7 +60,7 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(height: 20,),
           SectionTitle(text: 'breaking news', onPressed: (){Get.to(const ViewRecommendationsPage());},),
           const SizedBox(height: 20,),
-          PageSlider(images: images),
+          PageSlider(images: images, onPressed: (){Get.to(const CurrentNews());},),
           const SizedBox(height: 30,),
           SectionTitle(text: 'recommendations', onPressed: (){
             Get.to(const ViewRecommendationsPage());

@@ -6,9 +6,13 @@ class PageSlider extends StatelessWidget {
   const PageSlider({
     super.key,
     required this.images,
+    this.onPressed,
+
   });
 
   final List<({String image, String newsDesc, String time, String title})> images;
+  final Function()? onPressed;
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,46 +23,49 @@ class PageSlider extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         controller: PageController(viewportFraction: .95, initialPage: 1),
         itemBuilder: (context, index) {
-          return Container(
-            margin: const EdgeInsets.symmetric(horizontal:5),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(40),
-                image: DecorationImage(
-                    image: AssetImage(images[index].image),
-                    fit: BoxFit.cover
-                )
-            ),
-            child: Stack(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(40),
-                      color: Colors.black.withOpacity(.4)
-                  ),
-                ),
-
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 15,),
-                    ElevatedButton(onPressed: () {}, child: const Text('Sports',),),
-                    const Spacer(),
-                    Row(
-                      children: [
-                        Text(images[index].newsDesc, style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w500, color: Colors.white),),
-                        const SizedBox(width: 5,),
-                        const Icon(Icons.verified, color: Colors.lightBlueAccent,),
-                        const SizedBox(width: 10,),
-                        Text(images[index].time, style: const TextStyle(color: Colors.white),)
-                      ],
+          return InkWell(
+            onTap: onPressed,
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal:5),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(40),
+                  image: DecorationImage(
+                      image: AssetImage(images[index].image),
+                      fit: BoxFit.cover
+                  )
+              ),
+              child: Stack(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(40),
+                        color: Colors.black.withOpacity(.4)
                     ),
-                    const SizedBox(height: 10,),
-                    Text(images[index].title,style: const TextStyle(fontSize: 23, fontWeight: FontWeight.w600, color: Colors.white),),
-                    const SizedBox(height: 15,),
+                  ),
 
-                  ],
-                ).marginSymmetric(horizontal: 30)
-              ],
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 15,),
+                      ElevatedButton(onPressed: () {}, child: const Text('Sports',),),
+                      const Spacer(),
+                      Row(
+                        children: [
+                          Text(images[index].newsDesc, style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w500, color: Colors.white),),
+                          const SizedBox(width: 5,),
+                          const Icon(Icons.verified, color: Colors.lightBlueAccent,),
+                          const SizedBox(width: 10,),
+                          Text(images[index].time, style: const TextStyle(color: Colors.white),)
+                        ],
+                      ),
+                      const SizedBox(height: 10,),
+                      Text(images[index].title,style: const TextStyle(fontSize: 23, fontWeight: FontWeight.w600, color: Colors.white),),
+                      const SizedBox(height: 15,),
+
+                    ],
+                  ).marginSymmetric(horizontal: 30)
+                ],
+              ),
             ),
           );
         },

@@ -14,7 +14,7 @@ class DiscoverPage extends StatelessWidget {
     'politics',
     'entertainment',
     'business',
-    'tech',
+    'technology',
     'health',
     'science',
     'food',
